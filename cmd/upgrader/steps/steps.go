@@ -44,6 +44,7 @@ func RegisterAll(modules map[string]bool) []Step {
 		mysqlLcSnap := &ResourceSnapshot{}
 		all = append(all,
 			&PreflightDBFix{},
+			&PatchDBProviderComponentVersionsRBAC{},
 			&FixRedisAndWait{Snapshot: redisSnap},
 			&FixMySQLCVAndWait{Snapshot: mysqlSnap},
 			&FixMySQLLowercaseAndWait{Snapshot: mysqlLcSnap},
